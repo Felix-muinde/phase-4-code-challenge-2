@@ -1,0 +1,56 @@
+from app import app, db
+from models import Restaurant, Pizza, RestaurantPizza
+
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+        
+        restaurant1 = Restaurant(name="Casa Nonna", address="123 Broadway, New York, NY 10010")
+        restaurant2 = Restaurant(name="Trattoria Toscana", address="456 Lexington Ave, New York, NY 10022")
+        restaurant3 = Restaurant(name="Villa Italiana", address="789 Madison Ave, New York, NY 10028")
+        restaurant4 = Restaurant(name="Mamma Maria's", address="101 Park Ave, New York, NY 10017")
+        restaurant5 = Restaurant(name="Bella Napoli", address="202 5th Ave, New York, NY 10011")
+        restaurant6 = Restaurant(name="Pomodoro Ristorante", address="303 6th Ave, New York, NY 10012")
+        restaurant7 = Restaurant(name="Ristorante Al Dente", address="404 7th Ave, New York, NY 10013")
+        restaurant8 = Restaurant(name="La Piazza", address="505 8th Ave, New York, NY 10014")
+        restaurant9 = Restaurant(name="Osteria Romana", address="606 9th Ave, New York, NY 10015")
+        restaurant10 = Restaurant(name="Gusto Italiano", address="707 10th Ave, New York, NY 10016")
+
+        pizza1 = Pizza(name="Mushroom Delight", ingredients="Dough, Tomato Sauce, Cheese, Mushrooms, Spinach, Onions")
+        pizza2 = Pizza(name="Quattro Formaggi", ingredients="Dough, Tomato Sauce, Mozzarella, Gorgonzola, Parmesan, Ricotta")
+        pizza3 = Pizza(name="Seafood Sensation", ingredients="Dough, White Sauce, Mozzarella, Shrimp, Calamari, Clams, Garlic")
+        pizza4 = Pizza(name="Pesto Perfection", ingredients="Dough, Pesto Sauce, Mozzarella, Cherry Tomatoes, Pine Nuts, Arugula")
+        pizza5 = Pizza(name="Prosciutto Passion", ingredients="Dough, Tomato Sauce, Mozzarella, Prosciutto, Arugula, Parmesan")
+        pizza6 = Pizza(name="Mediterranean Magic", ingredients="Dough, Tomato Sauce, Feta Cheese, Kalamata Olives, Red Onions, Spinach")
+        pizza7 = Pizza(name="Rustic Romana", ingredients="Dough, Tomato Sauce, Mozzarella, Italian Sausage, Roasted Red Peppers, Basil")
+        pizza8 = Pizza(name="Salami Supreme", ingredients="Dough, Tomato Sauce, Mozzarella, Salami, Black Olives, Green Peppers, Onions")
+        pizza9 = Pizza(name="Capricciosa Classic", ingredients="Dough, Tomato Sauce, Mozzarella, Ham, Artichokes, Olives, Mushrooms, Peas")
+        pizza10 = Pizza(name="Truffle Temptation", ingredients="Dough, White Sauce, Mozzarella, Truffle Oil, Mushrooms, Arugula")
+
+
+        restaurant_pizza1 = RestaurantPizza(price=10, restaurant=restaurant1, pizza=pizza1)
+        restaurant_pizza2 = RestaurantPizza(price=12, restaurant=restaurant1, pizza=pizza2)
+
+        db.session.add(restaurant1)
+        db.session.add(restaurant2)
+        db.session.add(restaurant3)
+        db.session.add(restaurant4)
+        db.session.add(restaurant5)
+        db.session.add(restaurant6)
+        db.session.add(restaurant7)
+        db.session.add(restaurant8)
+        db.session.add(restaurant9)
+        db.session.add(restaurant10)
+        db.session.add(pizza1)
+        db.session.add(pizza2)
+        db.session.add(pizza3)
+        db.session.add(pizza4)
+        db.session.add(pizza5)
+        db.session.add(pizza6)
+        db.session.add(pizza7)
+        db.session.add(pizza8)
+        db.session.add(pizza9)
+        db.session.add(pizza10)
+        db.session.add(restaurant_pizza1)
+        db.session.add(restaurant_pizza2)
+        db.session.commit()
